@@ -5,7 +5,7 @@
 </head>
 
 <body>
-
+  <button onclick="player(600);">only f1</button>
   <p id="t4"></p>
   <script>
         
