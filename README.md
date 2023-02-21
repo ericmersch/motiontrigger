@@ -46,10 +46,8 @@ sensor.start();
   	
   	a= (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
   	
-  	
+  	if (a>10){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; }
 }
-
-if (a>10){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; }
 
         
 
