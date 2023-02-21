@@ -49,7 +49,7 @@ sensor.start();
   	
 }
 
-if (a>10){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; player (600);}
+if (a>10){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; }
 
         
 
