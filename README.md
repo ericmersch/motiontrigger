@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <html>
 <head>
   <title>MOTION DETECTOR</title>
@@ -26,10 +24,12 @@ show();
     console.log("Acceleration along Z-axis: " + sensor.z);
 }
 
+
+        document.getElementById("t1").innerHTML = 'ax = '+ sensor.x + ' m.s-2';
+        document.getElementById("t2").innerHTML = 'ay = '+ sensor.y + ' m.s-2';
+        document.getElementById("t3").innerHTML = 'az = '+ sensor.z + ' m.s-2';
+
 sensor.onerror = event => console.log(event.error.name, event.error.message);
-        document.getElementById("t1").innerHTML = 'x = '+ sensor.x + ' m.s-2';
-        document.getElementById("t2").innerHTML = 'y = '+ sensor.y + ' m.s-2';
-        document.getElementById("t3").innerHTML = 'z = '+ sensor.z + ' m.s-2';
 }
        
         
