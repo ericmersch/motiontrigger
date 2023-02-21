@@ -11,6 +11,7 @@
         
     audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 let a =0;
+    let rising = 1;
    
   function player (freq) {
 
@@ -46,7 +47,8 @@ sensor.start();
   	
   	a= (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
   	
-  	if (a>10){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; }
+  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; rising = 0; player (800); }
+    if (a<10){rising = 1;}
 }
 
         
