@@ -23,7 +23,7 @@ sensor.start();
 
   	sensor.onreading = () => {
   	
-  	let a = sqrt(sensor.x^2+sensor.y^2+sensor.z^2);
+  	a = sqrt(sensor.x^2+sensor.y^2+sensor.z^2);
 
         document.getElementById("t1").innerHTML = 'ax = '+ sensor.x + 'm.s-2';
         document.getElementById("t2").innerHTML = 'ay = '+ sensor.y + 'm.s-2';
