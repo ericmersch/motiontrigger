@@ -12,7 +12,31 @@
   <p id="t4"></p>
   <script>
         
- 
+    audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+
+   
+  function player (freq) {
+
+            
+  var osc = audioCtx.createOscillator();
+  var gainNode = audioCtx.createGain();
+
+  osc.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+
+  gainNode.gain.value = 0.1;
+  osc.frequency.value = freq;
+  osc.type = "sine";
+
+  osc.start();
+
+  setTimeout(
+    function() {
+      osc.stop();
+    },
+    2000
+  );
+  };
 
 show();
         
@@ -24,6 +48,8 @@ sensor.start();
   	sensor.onreading = () => {
   	
   	let a = (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
+  	
+  	if (a>10){ player (600);}
 
         document.getElementById("t1").innerHTML = 'ax = '+ sensor.x + 'm.s-2';
         document.getElementById("t2").innerHTML = 'ay = '+ sensor.y + 'm.s-2';
