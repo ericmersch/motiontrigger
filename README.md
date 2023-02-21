@@ -24,10 +24,11 @@ sensor.start();
   	sensor.onreading = () => {
   	
   	let a = 10;
+    a = sqrt(sensor.x^2+sensor.y^2+sensor.z^2);
 
-        document.getElementById("t1").innerHTML = 'ax = '+ sensor.x + 'm.s-2';
-        document.getElementById("t2").innerHTML = 'ay = '+ sensor.y + 'm.s-2';
-        document.getElementById("t3").innerHTML = 'az = '+ sensor.z + 'm.s-2';
+        document.getElementById("t1").innerHTML = 'ax = '+ sensor.x + ' m.s-2';
+        document.getElementById("t2").innerHTML = 'ay = '+ sensor.y + ' m.s-2';
+        document.getElementById("t3").innerHTML = 'az = '+ sensor.z + ' m.s-2';
         document.getElementById("t4").innerHTML = 'a = '+ a + 'm.s-2';
 }
 sensor.onerror = event => console.log(event.error.name, event.error.message);
