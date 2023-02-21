@@ -33,12 +33,12 @@ let a =0;
   );
   };
     
-
+loadfiles();
    
 // where to find flash SWFs, if needed...
     //soundManager.url = '';
     
-    function playfile(){
+    function loadfiles(){
 
     soundManager.onready(function() {
         soundManager.createSound({
@@ -65,12 +65,13 @@ let a =0;
             id: 'mySound5',
             url: 'croq5.wav'
         });
-
+        });
+    }
+    function playfile(){
         // ...and play it
         k++;
         soundManager.play('mySound'+k);
         if(k==5){k=0;}
-    });
     }
     
     show();
