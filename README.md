@@ -2,11 +2,7 @@
 <head>
   <title>MOTION DETECTOR</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
 
-<body>
-  
-  <p id="t4"></p>
   <script>
         
     audioCtx = new(window.AudioContext || window.webkitAudioContext)();
@@ -47,7 +43,7 @@ sensor.start();
   	
   	a= (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
   	
-  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BooOM = '+ a + 'm.s-2'; rising = 0; player (800); }
+  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BoooOM = '+ a + 'm.s-2'; rising = 0; player (800); }
     if (a<10){rising = 1;}
 }
 
@@ -58,5 +54,14 @@ sensor.onerror = event => console.log(event.error.name, event.error.message);
        
         
     </script>
+
+</head>
+
+
+
+<body onload="player(600);">
+  <button onclick="player(600);">test</button>
+  <p id="t4"></p>
+
 </body>
 </html>
