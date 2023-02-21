@@ -5,7 +5,7 @@
 </head>
 
 <body>
-  <button onclick="player(600);">only f1</button>
+  
   <p id="t4"></p>
   <script>
         
@@ -47,7 +47,7 @@ sensor.start();
   	
   	a= (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
   	
-  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BoooOM = '+ a + 'm.s-2'; rising = 0; player (800); }
+  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BooOM = '+ a + 'm.s-2'; rising = 0; player (800); }
     if (a<10){rising = 1;}
 }
 
