@@ -48,7 +48,6 @@ sensor.start();
   	
   	if (a>10){ document.getElementById("t4").innerHTML = 'BOOOM = '+ a + 'm.s-2'; player (600);}
 
-        document.getElementById("t4").innerHTML = 'a = '+ a + 'm.s-2';
 }
 sensor.onerror = event => console.log(event.error.name, event.error.message);
 }
