@@ -9,6 +9,7 @@
   <p id="t1"></p>
   <p id="t2"></p>
   <p id="t3"></p>
+  <p id="t4"></p>
   <script>
         
  
@@ -21,13 +22,13 @@ show();
 sensor.start();
 
   	sensor.onreading = () => {
-    console.log("Acceleration along X-axis: " + sensor.x);
-    console.log("Acceleration along Y-axis: " + sensor.y);
-    console.log("Acceleration along Z-axis: " + sensor.z);
+  	
+  	let a = sqrt(sensor.x^2+sensor.y^2+sensor.z^2);
 
         document.getElementById("t1").innerHTML = 'ax = '+ sensor.x + 'm.s-2';
         document.getElementById("t2").innerHTML = 'ay = '+ sensor.y + 'm.s-2';
         document.getElementById("t3").innerHTML = 'az = '+ sensor.z + 'm.s-2';
+        document.getElementById("t4").innerHTML = 'a = '+ a + 'm.s-2';
 }
 sensor.onerror = event => console.log(event.error.name, event.error.message);
 }
