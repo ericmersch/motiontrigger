@@ -2,15 +2,16 @@
 <head>
   <title>MOTION DETECTOR</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+  <script src="soundmanager2.js"></script>
   <script>
         
-    audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+  
 let a =0;
     let rising = 1;
+    let k = 0;
    
   function player (freq) {
-
+  audioCtx = new(window.AudioContext || window.webkitAudioContext)();
             
   var osc = audioCtx.createOscillator();
   var gainNode = audioCtx.createGain();
@@ -31,8 +32,48 @@ let a =0;
     2000
   );
   };
+    
 
-show();
+   
+// where to find flash SWFs, if needed...
+    //soundManager.url = '';
+    
+    function playfile(){
+
+    soundManager.onready(function() {
+        soundManager.createSound({
+            id: 'mySound1',
+            url: 'croq1.wav'
+        });
+        
+        soundManager.createSound({
+            id: 'mySound2',
+            url: 'croq2.wav'
+        });
+        
+        soundManager.createSound({
+            id: 'mySound3',
+            url: 'croq3.wav'
+        });
+        
+        soundManager.createSound({
+            id: 'mySound4',
+            url: 'croq4.wav'
+        });
+        
+        soundManager.createSound({
+            id: 'mySound5',
+            url: 'croq5.wav'
+        });
+
+        // ...and play it
+        k++;
+        soundManager.play('mySound'+k);
+        if(k==5){k=0;}
+    });
+    }
+    
+    show();
         
   function show() {
   
@@ -43,7 +84,7 @@ sensor.start();
   	
   	a= (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
   	
-  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BoooOM = '+ a + 'm.s-2'; rising = 0; player (800); }
+  	if (a>10 && rising){ document.getElementById("t4").innerHTML = 'BoooOM = '+ a + 'm.s-2'; rising = 0; playfile(); }
     if (a<10){rising = 1;}
 }
 
@@ -59,9 +100,9 @@ sensor.onerror = event => console.log(event.error.name, event.error.message);
 
 
 
-<body onload="player(600);">
-  <button onclick="player(600);">test</button>
+<body>
+  <button onclick="player(600);">START</button>
+  <button onclick="playfile();">file</button>
   <p id="t4"></p>
-
 </body>
 </html>
