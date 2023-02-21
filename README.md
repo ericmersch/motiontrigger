@@ -10,7 +10,7 @@
   <script>
         
     audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-
+let a =0;
    
   function player (freq) {
 
@@ -44,11 +44,15 @@ sensor.start();
 
   	sensor.onreading = () => {
   	
-  	let a = (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
+  	a= (Math.sqrt((sensor.x * sensor.x) + (sensor.y * sensor.y) + (sensor.z * sensor.z)));
   	
-  	if (a>10){ document.getElementById("t4").innerHTML = 'BOOOM = '+ a + 'm.s-2'; player (600);}
-
+  	
 }
+
+if (a>10){ document.getElementById("t4").innerHTML = 'BoOM = '+ a + 'm.s-2'; player (600);}
+
+        document.getElementById("t4").innerHTML = 'a = '+ a + 'm.s-2';
+
 sensor.onerror = event => console.log(event.error.name, event.error.message);
 }
        
