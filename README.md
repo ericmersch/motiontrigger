@@ -43,27 +43,27 @@ loadfiles();
     soundManager.onready(function() {
         soundManager.createSound({
             id: 'mySound1',
-            url: 'croq1.wav'
+            url: 'bong1.wav'
         });
         
         soundManager.createSound({
             id: 'mySound2',
-            url: 'croq2.wav'
+            url: 'bong2.wav'
         });
         
         soundManager.createSound({
             id: 'mySound3',
-            url: 'croq3.wav'
+            url: 'bong3.wav'
         });
         
         soundManager.createSound({
             id: 'mySound4',
-            url: 'croq4.wav'
+            url: 'bong4.wav'
         });
         
         soundManager.createSound({
             id: 'mySound5',
-            url: 'croq5.wav'
+            url: 'bong5.wav'
         });
         });
     }
